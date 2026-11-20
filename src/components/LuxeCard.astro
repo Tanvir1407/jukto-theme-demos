@@ -1,0 +1,37 @@
+---
+// Jukto LuxeCard (Jewellery, E146): square photo on a dark tile with a thin border, the first spec
+// row (karat · weight) in gold, serif name, price. Products with options say "View details";
+// one-option products get an outline "Add to bag".
+import type { DemoProduct } from "../lib/types";
+import { THEME_ID } from "../lib/shop";
+import { bn, taka, img, offPercent } from "../lib/format";
+import { t } from "../lib/i18n";
+interface Props { p: DemoProduct; eager?: boolean }
+const { p, eager } = Astro.props;
+const o = p.options[0];
+const off = offPercent(o.price, o.was);
+const href = `/product/${p.slug}/`;
+const many = p.options.length > 1;
+---
+<article class="group flex h-full flex-col gap-3">
+  <a href={href} class="relative block aspect-square overflow-hidden border border-ink-200 bg-ink-50">
+    <img src={img(THEME_ID, p.img, 400)} srcset={`${img(THEME_ID, p.img, 400)} 400w, ${img(THEME_ID, p.img, 800)} 800w`} sizes="(max-width: 768px) 50vw, 25vw" alt={p.name} width="400" height="400" loading={eager ? "eager" : "lazy"} decoding="async" class="size-full object-cover transition duration-700 ease-out group-hover:scale-105" />
+    <span class="absolute left-2 top-2 flex flex-col items-start gap-1">
+      {off > 0 && <span class="bg-action-500 px-2 py-0.5 text-xs font-semibold text-heading">{t("{n}% ছাড়", { n: bn(off) })}</span>}
+      {p.badge && <span class="border border-brand-800 bg-surface/80 px-2 py-0.5 text-xs text-brand-800">{p.badge}</span>}
+    </span>
+  </a>
+  {p.spec && <span class="text-xs tracking-wide text-brand-800">{p.spec}</span>}
+  <a href={href}><h3 class="line-clamp-2 min-h-[2.8em] text-base md:text-[19px] leading-snug text-heading group-hover:text-brand-900">{p.name}</h3></a>
+  <span class="flex items-baseline gap-2">
+    <span class="text-[15px] md:text-base font-medium text-ink-900">{many ? t("{price} থেকে", { price: taka(o.price) }) : taka(o.price)}</span>
+    {o.was && <span class="text-xs text-ink-500 line-through">{taka(o.was)}</span>}
+  </span>
+  <span class="mt-auto">
+    {many ? (
+      <a href={href} class="flex h-11 w-full items-center justify-center border border-ink-300 text-sm text-ink-900 hover:border-brand-800 hover:text-brand-800">{t("বিস্তারিত দেখুন")}</a>
+    ) : (
+      <button type="button" data-add={p.slug} data-opt="0" class="flex h-11 w-full items-center justify-center border border-brand-800 text-sm text-brand-800 hover:bg-brand-800 hover:text-surface transition">{t("ব্যাগে নিন")}</button>
+    )}
+  </span>
+</article>

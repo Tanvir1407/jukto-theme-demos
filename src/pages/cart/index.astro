@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { t } from "../../lib/i18n";
+---
+<Layout title={t("কার্ট")} active="cart">
+  <div class="mx-auto max-w-3xl px-3 md:px-6 pt-4 md:pt-8">
+    <h1 class="text-2xl md:text-3xl font-bold text-heading">{t("আমার কার্ট")}</h1>
+    <div id="cart-empty" class="mt-4 rounded-2xl bg-ink-0 p-10 text-center">
+      <p class="text-ink-600">{t("কার্টে এখনো কিছু নেই।")}</p>
+      <a href="/products/" class="mt-4 inline-flex h-11 items-center rounded-full bg-brand-800 px-6 font-semibold text-ink-0">{t("কেনাকাটা শুরু করুন")}</a>
+    </div>
+    <div id="cart-box" hidden class="mt-4 flex flex-col gap-3">
+      <ul id="cart-lines" class="flex flex-col gap-2.5"></ul>
+      <div class="rounded-2xl bg-ink-0 p-4 flex items-center justify-between">
+        <span class="text-ink-600">{t("মোট (ডেলিভারি ছাড়া)")}</span>
+        <span class="text-xl font-bold text-heading" data-cart-total>{t("৳০")}</span>
+      </div>
+      <a href="/checkout/" class="flex h-12 items-center justify-center rounded-full bg-brand-800 font-semibold text-ink-0 hover:bg-brand-900">{t("অর্ডার করতে এগিয়ে যান")}</a>
+    </div>
+    <template id="cart-line">
+      <li class="flex items-center gap-3 rounded-2xl bg-ink-0 p-2.5">
+        <img data-img alt="" width="80" height="80" class="size-20 shrink-0 rounded-xl object-cover bg-ink-50" />
+        <div class="min-w-0 flex-1">
+          <a data-name class="line-clamp-2 font-semibold text-ink-800 hover:text-brand-800"></a>
+          <p class="text-sm text-ink-500" data-opt></p>
+          <p class="font-bold text-brand-800" data-line-total></p>
+        </div>
+        <div class="flex flex-col items-end gap-1">
+          <div class="flex items-center rounded-full border border-ink-200">
+            <button type="button" data-minus aria-label={t("কমান")} class="size-10 text-lg text-brand-800">−</button>
+            <span data-qty class="min-w-6 text-center font-semibold"></span>
+            <button type="button" data-plus aria-label={t("বাড়ান")} class="size-10 text-lg text-brand-800">+</button>
+          </div>
+          <button type="button" data-remove class="min-h-9 px-2 text-xs text-ink-500 hover:text-action-800">{t("সরান")}</button>
+        </div>
+      </li>
+    </template>
+  </div>
+</Layout>

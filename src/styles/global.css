@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: var(--brand-50); --color-brand-100: var(--brand-100); --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300); --color-brand-400: var(--brand-400); --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600); --color-brand-700: var(--brand-700); --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900); --color-brand-950: var(--brand-950);
+  --color-ink-0: var(--ink-0); --color-ink-50: var(--ink-50); --color-ink-100: var(--ink-100); --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300); --color-ink-400: var(--ink-400); --color-ink-500: var(--ink-500); --color-ink-600: var(--ink-600);
+  --color-ink-700: var(--ink-700); --color-ink-800: var(--ink-800); --color-ink-900: var(--ink-900); --color-ink-950: var(--ink-950);
+  --color-action-50: var(--action-50); --color-action-100: var(--action-100); --color-action-500: var(--action-500);
+  --color-action-600: var(--action-600); --color-action-700: var(--action-700); --color-action-800: var(--action-800);
+  --color-surface: var(--surface);
+  --color-heading: var(--heading);
+  --font-sans: var(--font);
+}
+
+html { -webkit-tap-highlight-color: transparent; }
+body { font-family: var(--font); }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Serif display font for headings (Jewellery, Craft); falls back to the body font. */
+h1, h2, h3, .font-display { font-family: var(--font-display, var(--font)); }
+html[data-display] :is(h1, h2, h3) { font-weight: 400; }
+
+/* Dark page (Jewellery): native controls dark, the announcement bar sits on the page. */
+html[data-scheme="dark"] { color-scheme: dark; }
+html[data-scheme="dark"] [data-announce] { background: transparent; color: var(--ink-600); border-bottom: 1px solid var(--ink-200); }
+
+/* Paper grain (Craft): two faint dot layers, no image file. */
+html[data-paper] body {
+  background-image: radial-gradient(rgb(120 85 40 / 0.07) 1px, transparent 1.2px), radial-gradient(rgb(120 85 40 / 0.05) 1px, transparent 1.2px);
+  background-size: 7px 7px, 11px 11px;
+  background-position: 0 0, 3px 5px;
+}
+
+html[data-paper] [data-story-panel] { background: color-mix(in srgb, var(--surface) 80%, var(--brand-800) 12%); }
+
+/* Fashion and other "sharp" themes: square corners everywhere except dots and counters (.keep-round). */
+html[data-radius="sharp"] :is(.rounded-full, .rounded-2xl, .rounded-3xl, .rounded-xl, .rounded-lg):not(.keep-round) { border-radius: 0; }

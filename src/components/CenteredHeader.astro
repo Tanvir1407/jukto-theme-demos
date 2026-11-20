@@ -1,0 +1,32 @@
+---
+// Jukto CenteredHeader (Fashion): links left, shop name centred, search / bag right; announcement bar on top.
+import { shop, theme, href } from "../lib/shop";
+import { LANG } from "../lib/i18n";
+// Letter-spacing only on Latin names: it breaks Bangla conjuncts.
+import { t } from "../lib/i18n";
+---
+<div data-announce class="bg-heading text-ink-0 text-xs md:text-[13px] text-center py-2 px-3">{shop.announcement}</div>
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur border-b border-ink-200">
+  <div class="mx-auto max-w-7xl px-3 md:px-6 h-14 md:h-16 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+    <nav aria-label={t("প্রধান মেনু")} class="hidden md:flex items-center gap-5 text-sm text-ink-800">
+      {shop.nav?.map((n, i) => <a href={href(n.href)} class:list={["hover:text-heading hover:underline underline-offset-4", i === (shop.nav?.length ?? 0) - 1 && "text-action-800 font-semibold"]}>{n.label}</a>)}
+    </nav>
+    <a href="/products/" class="md:hidden size-11 grid place-items-center text-heading" aria-label={t("সব পণ্য")}>
+      <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </a>
+    <a href="/" class:list={["justify-self-center", theme.displayFont ? ["font-display text-xl md:text-[30px] text-brand-800", LANG === "en" && "tracking-[0.25em]"] : "text-2xl md:text-[28px] font-semibold text-heading"]}>{shop.name}</a>
+    <div class="justify-self-end flex items-center gap-1">
+      <a href="/products/" class="size-11 grid place-items-center text-heading" aria-label={t("খুঁজুন")}>
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a href="/track/" class="hidden md:grid size-11 place-items-center text-heading" aria-label={t("অর্ডার ট্র্যাক")}>
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h11v10H3z M14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+      </a>
+      <a href="/cart/" class="relative h-10 px-3 md:px-4 border border-heading text-sm font-semibold text-heading flex items-center gap-2" aria-label={t("ব্যাগ")}>
+        <span class="hidden md:inline">{t("ব্যাগ")}</span>
+        <svg class="md:hidden size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 7h12l-1 13H7z M9 7a3 3 0 0 1 6 0"/></svg>
+        <span data-cart-count hidden class="keep-round min-w-5 h-5 px-1 rounded-full bg-heading text-[11px] text-ink-0 grid place-items-center">{t("০")}</span>
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,81 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import { shop, theme } from "../../lib/shop";
+import { bn } from "../../lib/format";
+import { t } from "../../lib/i18n";
+---
+<Layout title={t("সব পণ্য")} active="categories">
+  <div class="mx-auto max-w-7xl px-3 md:px-6 pt-4 md:pt-6">
+    <nav aria-label={t("অবস্থান")} class="text-sm text-ink-500"><a href="/" class="hover:text-brand-800">{t("হোম")}</a> / <span class="text-ink-800" data-crumb>{t("সব পণ্য")}</span></nav>
+    <div class="mt-2 flex flex-wrap items-end justify-between gap-3">
+      <h1 class="text-2xl md:text-3xl font-bold text-heading" data-heading>{t("সব পণ্য")}</h1>
+      <label class="flex items-center gap-2 text-sm text-ink-600">{t("সাজান")}
+        <select data-sort class="h-11 rounded-full border border-ink-200 bg-ink-0 px-4 text-sm text-ink-800">
+          <option value="">{t("পছন্দের ক্রমে")}</option>
+          <option value="low">{t("দাম: কম থেকে বেশি")}</option>
+          <option value="high">{t("দাম: বেশি থেকে কম")}</option>
+        </select>
+      </label>
+    </div>
+    <div class="mt-4 flex gap-2 overflow-x-auto no-scrollbar pb-1" role="group" aria-label={t("ক্যাটাগরি বাছুন")}>
+      <button type="button" data-cat="" class="shrink-0 h-10 px-4 rounded-full border border-brand-200 bg-ink-0 text-sm font-medium text-ink-700 data-[on='1']:bg-brand-800 data-[on='1']:border-brand-800 data-[on='1']:text-ink-0">{t("সব")}</button>
+      {shop.categories.map((c) => (
+        <button type="button" data-cat={c.id} class="shrink-0 h-10 px-4 rounded-full border border-brand-200 bg-ink-0 text-sm font-medium text-ink-700 data-[on='1']:bg-brand-800 data-[on='1']:border-brand-800 data-[on='1']:text-ink-0">{c.name}</button>
+      ))}
+    </div>
+    <p class="mt-3 text-sm text-ink-500" data-count></p>
+    <div class:list={["mt-3 grid grid-cols-2 gap-2.5 md:gap-4", theme.blocks.card !== "grocery" ? "lg:grid-cols-4" : "sm:grid-cols-3 lg:grid-cols-5"]} data-grid>
+      {shop.products.map((p, i) => (
+        <div data-item data-cat={p.category} data-name={p.name} data-price={p.options[0].price} data-sale={p.options[0].was ? "1" : ""} data-i={i}>
+          <ProductCard p={p} eager={i < 4} />
+        </div>
+      ))}
+    </div>
+    <p hidden data-empty class="py-16 text-center text-ink-500">{t("এই খোঁজে কোনো পণ্য পাওয়া যায়নি।")}</p>
+  </div>
+</Layout>
+
+<script>
+  const UI = JSON.parse(document.getElementById("demo-data")?.textContent || "{}");
+  const BN = "০১২৩৪৫৬৭৮৯";
+  const bn = (n: number) => (UI.lang === "en" ? String(n) : String(n).replace(/\d/g, (d) => BN[+d]));
+  const params = new URLSearchParams(location.search);
+  let cat = params.get("category") || "";
+  const q = (params.get("q") || "").trim();
+  const sale = params.get("sale") === "1";
+  const grid = document.querySelector<HTMLElement>("[data-grid]")!;
+  const items = [...grid.querySelectorAll<HTMLElement>("[data-item]")];
+  const chips = [...document.querySelectorAll<HTMLElement>("button[data-cat]")];
+  const sortSel = document.querySelector<HTMLSelectElement>("[data-sort]")!;
+  const heading = document.querySelector("[data-heading]")!;
+  const crumb = document.querySelector("[data-crumb]")!;
+  if (q) (document.getElementById("q") as HTMLInputElement).value = q;
+
+  function apply() {
+    let shown = 0;
+    for (const el of items) {
+      const ok = (!cat || el.dataset.cat === cat) && (!q || el.dataset.name!.toLowerCase().includes(q.toLowerCase())) && (!sale || el.dataset.sale === "1");
+      el.hidden = !ok;
+      if (ok) shown++;
+    }
+    const s = sortSel.value;
+    [...items]
+      .sort((a, b) => (s === "low" ? +a.dataset.price! - +b.dataset.price! : s === "high" ? +b.dataset.price! - +a.dataset.price! : +a.dataset.i! - +b.dataset.i!))
+      .forEach((el) => grid.appendChild(el));
+    chips.forEach((c) => (c.dataset.on = c.dataset.cat === cat ? "1" : ""));
+    const title = q ? UI.ui.searchFor.replace("{q}", q) : sale ? UI.ui.onSale : cat ? chips.find((c) => c.dataset.cat === cat)!.textContent! : UI.ui.allProducts;
+    heading.textContent = crumb.textContent = title;
+    document.querySelector("[data-count]")!.textContent = UI.ui.count.replace("{n}", bn(shown));
+    (document.querySelector("[data-empty]") as HTMLElement).hidden = shown > 0;
+  }
+  chips.forEach((c) => c.addEventListener("click", () => {
+    cat = c.dataset.cat || "";
+    const u = new URL(location.href);
+    cat ? u.searchParams.set("category", cat) : u.searchParams.delete("category");
+    history.replaceState(null, "", u);
+    apply();
+  }));
+  sortSel.addEventListener("change", apply);
+  apply();
+</script>

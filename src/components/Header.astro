@@ -1,0 +1,7 @@
+---
+import SearchFirstHeader from "./SearchFirstHeader.astro";
+import CenteredHeader from "./CenteredHeader.astro";
+import ClassicHeader from "./ClassicHeader.astro";
+import { theme } from "../lib/shop";
+---
+{theme.blocks.header === "centered" ? <CenteredHeader /> : theme.blocks.header === "classic" ? <ClassicHeader /> : <SearchFirstHeader />}

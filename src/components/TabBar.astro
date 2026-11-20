@@ -1,0 +1,21 @@
+---
+// Jukto mobile app shell: the same four tabs in every theme, colours from the theme.
+interface Props { active: "home" | "categories" | "cart" | "track" }
+const { active } = Astro.props;
+const tabs = [
+  { id: "home", href: "/", label: t("হোম"), d: "M4 11 12 4l8 7v9h-5v-6H9v6H4z" },
+  { id: "categories", href: "/products/", label: t("ক্যাটাগরি"), d: "M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z" },
+  { id: "cart", href: "/cart/", label: t("ব্যাগ"), d: "M3 4h2l2.4 11h11l2-8H6.2" },
+  { id: "track", href: "/track/", label: t("ট্র্যাক"), d: "M3 6h11v10H3z M14 9h4l3 3v4h-7" },
+] as const;
+import { t } from "../lib/i18n";
+---
+<nav aria-label={t("অ্যাপ মেনু")} class="md:hidden fixed inset-x-0 bottom-0 z-40 h-[68px] pb-[env(safe-area-inset-bottom)] bg-ink-0 border-t border-ink-200 grid grid-cols-4">
+  {tabs.map((tab) => (
+    <a href={tab.href} aria-current={active === tab.id ? "page" : undefined} class:list={["relative flex flex-col items-center justify-center gap-1 text-[11px]", active === tab.id ? "font-semibold text-brand-800" : "text-ink-500"]}>
+      <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d={tab.d} /></svg>
+      {tab.label}
+      {tab.id === "cart" && <span data-cart-count hidden class="absolute top-2 left-[54%] min-w-4 h-4 px-1 rounded-full bg-brand-800 text-[10px] font-bold text-ink-0 grid place-items-center">{t("০")}</span>}
+    </a>
+  ))}
+</nav>

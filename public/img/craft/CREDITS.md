@@ -1,0 +1,28 @@
+# Photo credits — craft demo
+
+All photos from Unsplash, free to use under the Unsplash License (https://unsplash.com/license).
+
+- hero-loom: https://unsplash.com/photos/1640292343595-889db1c8262e (images.unsplash.com/photo-1640292343595-889db1c8262e)
+- hero-baskets: https://unsplash.com/photos/1590751518505-1fc2d227ef9b (images.unsplash.com/photo-1590751518505-1fc2d227ef9b)
+- story-weaver: https://unsplash.com/photos/1774504798091-f8349c656395 (images.unsplash.com/photo-1774504798091-f8349c656395)
+- col-dolls: https://unsplash.com/photos/1650425801207-6c50edf1aa1a (images.unsplash.com/photo-1650425801207-6c50edf1aa1a)
+- col-decor: https://unsplash.com/photos/1782216312755-42f2b13590c8 (images.unsplash.com/photo-1782216312755-42f2b13590c8)
+- col-gift: https://unsplash.com/photos/1758487424832-a53ae6cdefdb (images.unsplash.com/photo-1758487424832-a53ae6cdefdb)
+- cat-clay: https://unsplash.com/photos/1771627278991-8922851b9435 (images.unsplash.com/photo-1771627278991-8922851b9435)
+- cat-cane: https://unsplash.com/photos/1573095709988-1e208fc91c27 (images.unsplash.com/photo-1573095709988-1e208fc91c27)
+- cat-jute: https://unsplash.com/photos/1758487424832-a53ae6cdefdb (images.unsplash.com/photo-1758487424832-a53ae6cdefdb)
+- cat-stitch: https://unsplash.com/photos/1622378158084-f2221260e688 (images.unsplash.com/photo-1622378158084-f2221260e688)
+- cat-loom: https://unsplash.com/photos/1569909115134-a0426936c879 (images.unsplash.com/photo-1569909115134-a0426936c879)
+- p-dolls: https://unsplash.com/photos/1650425801207-6c50edf1aa1a (images.unsplash.com/photo-1650425801207-6c50edf1aa1a)
+- p-kolshi: https://unsplash.com/photos/1757083821615-62de7719c864 (images.unsplash.com/photo-1757083821615-62de7719c864)
+- p-jug: https://unsplash.com/photos/1656088239658-ca839d7e8841 (images.unsplash.com/photo-1656088239658-ca839d7e8841)
+- p-jars: https://unsplash.com/photos/1771627278991-8922851b9435 (images.unsplash.com/photo-1771627278991-8922851b9435)
+- p-pots: https://unsplash.com/photos/1468531390554-9f62f9767a87 (images.unsplash.com/photo-1468531390554-9f62f9767a87)
+- p-wall-baskets: https://unsplash.com/photos/1590751518505-1fc2d227ef9b (images.unsplash.com/photo-1590751518505-1fc2d227ef9b)
+- p-trays: https://unsplash.com/photos/1573095709988-1e208fc91c27 (images.unsplash.com/photo-1573095709988-1e208fc91c27)
+- p-basket: https://unsplash.com/photos/1578678809626-a3741782f0b8 (images.unsplash.com/photo-1578678809626-a3741782f0b8)
+- p-jute-bags: https://unsplash.com/photos/1758487424832-a53ae6cdefdb (images.unsplash.com/photo-1758487424832-a53ae6cdefdb)
+- p-hoop-rose: https://unsplash.com/photos/1622378158084-f2221260e688 (images.unsplash.com/photo-1622378158084-f2221260e688)
+- p-hoop-wild: https://unsplash.com/photos/1671535108620-d169ce916f09 (images.unsplash.com/photo-1671535108620-d169ce916f09)
+- p-flower: https://unsplash.com/photos/1720982018719-f2666caf447a (images.unsplash.com/photo-1720982018719-f2666caf447a)
+- p-loom-green: https://unsplash.com/photos/1707978932202-751b08324daf (images.unsplash.com/photo-1707978932202-751b08324daf)

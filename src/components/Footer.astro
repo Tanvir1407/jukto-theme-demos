@@ -1,0 +1,37 @@
+---
+import { shop, theme, JUKTO_URL } from "../lib/shop";
+const light = theme.blocks.footer === "light";
+import { t, LANG } from "../lib/i18n";
+---
+<footer class:list={["mt-10", light ? "bg-surface text-ink-600 border-t border-ink-200" : "bg-brand-950 text-brand-100"]}>
+  <div class="mx-auto max-w-7xl px-4 md:px-6 py-10 md:py-12 grid gap-8 grid-cols-2 md:grid-cols-4 text-sm">
+    <div class="col-span-2 md:col-span-1 flex flex-col gap-3">
+      <span class="flex items-center gap-2.5">
+        {!light && <span class="grid place-items-center size-10 rounded-xl bg-ink-0 text-brand-900 text-lg font-bold">{shop.initial}</span>}
+        <span class:list={["text-xl", theme.displayFont ? ["font-display", light ? "text-brand-800" : "text-ink-0", LANG === "en" && "tracking-[0.2em]"] : ["font-bold", light ? "text-heading" : "text-ink-0"]]}>{shop.name}</span>
+      </span>
+      <p class:list={["leading-relaxed", light ? "text-ink-600" : "text-brand-200"]}>{shop.tagline}</p>
+    </div>
+    <div class="flex flex-col gap-2">
+      <span class:list={["font-semibold", light ? "text-heading" : "text-ink-0"]}>{t("কেনাকাটা")}</span>
+      {shop.categories.slice(0, 5).map((c) => <a href={`/products/?category=${c.id}`} class:list={[light ? "hover:text-heading" : "hover:text-ink-0"]}>{c.name}</a>)}
+    </div>
+    <div class="flex flex-col gap-2">
+      <span class:list={["font-semibold", light ? "text-heading" : "text-ink-0"]}>{t("সাহায্য")}</span>
+      <a href="/track/" class:list={[light ? "hover:text-heading" : "hover:text-ink-0"]}>{t("অর্ডার ট্র্যাক")}</a>
+      <a href="/cart/" class:list={[light ? "hover:text-heading" : "hover:text-ink-0"]}>{t("আমার কার্ট")}</a>
+      <span>{t("ডেলিভারি: ঢাকায় ১ দিন, বাইরে ২–৩ দিন")}</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <span class:list={["font-semibold", light ? "text-heading" : "text-ink-0"]}>{t("পেমেন্ট")}</span>
+      <span>{t("ক্যাশ অন ডেলিভারি · bKash · Nagad")}</span>
+      <span>{t("হটলাইন:")} {shop.phone}</span>
+    </div>
+  </div>
+  <div class:list={["border-t", light ? "border-ink-200" : "border-brand-900"]}>
+    <div class:list={["mx-auto max-w-7xl px-4 md:px-6 py-4 flex flex-wrap items-center justify-between gap-2 text-xs", light ? "text-ink-500" : "text-brand-300"]}>
+      <span>{t("ডেমো দোকান · পণ্য, দাম আর দোকানের নাম নমুনা · ছবি: Unsplash")}</span>
+      <a href={JUKTO_URL} class:list={["font-semibold hover:underline", light ? "text-heading" : "text-ink-0"]}>{t("যুক্ত দিয়ে তৈরি")}</a>
+    </div>
+  </div>
+</footer>

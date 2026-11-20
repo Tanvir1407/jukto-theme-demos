@@ -1,0 +1,37 @@
+---
+// Jukto ClassicHeader (Generic): logo left, search in the middle, track / cart right;
+// a thin category row below on desktop. Thin announcement bar on top.
+import { shop } from "../lib/shop";
+import { t } from "../lib/i18n";
+---
+<div class="bg-heading text-ink-0 text-xs md:text-[13px] text-center py-2 px-3">{shop.announcement}</div>
+<header class="sticky top-0 z-40 bg-ink-0 border-b border-ink-200">
+  <div class="mx-auto max-w-7xl px-3 md:px-6 py-2.5 md:py-3 flex items-center gap-3 md:gap-8 flex-wrap md:flex-nowrap">
+    <a href="/" class="flex items-center gap-2 shrink-0" aria-label={`${shop.name} — ${t("হোম")}`}>
+      <span class="grid place-items-center size-9 md:size-10 rounded-lg bg-heading text-ink-0 text-base md:text-lg font-bold">{shop.initial}</span>
+      <span class="text-xl md:text-[26px] font-bold text-heading">{shop.name}</span>
+    </a>
+    <form action="/products/" class="order-last md:order-none w-full md:flex-1 md:max-w-xl md:mx-auto flex items-center gap-2 h-11 px-4 rounded-lg bg-ink-100 focus-within:bg-ink-0 focus-within:ring-2 focus-within:ring-heading" role="search">
+      <svg class="size-5 text-ink-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label for="q" class="sr-only">{t("পণ্য খুঁজুন")}</label>
+      <input id="q" name="q" type="search" placeholder={t("জুতা, ব্যাগ, ওয়ালেট খুঁজুন…")} class="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-ink-400" />
+    </form>
+    <div class="ml-auto md:ml-0 flex items-center gap-1 shrink-0">
+      <a href="/track/" class="hidden md:flex items-center gap-2 h-11 px-3 text-sm text-ink-700 hover:text-heading">
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h11v10H3z M14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>{t("অর্ডার ট্র্যাক")}
+      </a>
+      <a href="/cart/" class="relative flex items-center gap-2 h-11 px-3 md:px-4 rounded-lg bg-heading text-ink-0" aria-label={t("কার্ট")}>
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 5h2l2 11h11l2-8H7"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+        <span class="hidden sm:inline text-sm font-semibold" data-cart-total>{t("৳০")}</span>
+        <span data-cart-count hidden class="keep-round absolute -top-1.5 -right-1.5 min-w-5 h-5 px-1 rounded-full bg-action-500 text-[11px] font-bold text-ink-950 grid place-items-center">{t("০")}</span>
+      </a>
+    </div>
+  </div>
+  <nav aria-label={t("ক্যাটাগরি")} class="hidden md:block border-t border-ink-100">
+    <div class="mx-auto max-w-7xl px-6 flex items-center gap-6 h-11 text-sm text-ink-700">
+      <a href="/products/" class="font-semibold text-heading">{t("সব পণ্য")}</a>
+      {shop.categories.map((c) => <a href={`/products/?category=${c.id}`} class="hover:text-heading hover:underline underline-offset-4">{c.name}</a>)}
+      <a href="/products/?sale=1" class="ml-auto font-semibold text-action-800">{t("অফার")}</a>
+    </div>
+  </nav>
+</header>

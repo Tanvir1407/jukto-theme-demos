@@ -1,0 +1,27 @@
+# Photo credits — mensfashion demo
+
+All photos from Unsplash, free to use under the Unsplash License (https://unsplash.com/license).
+
+- hero-kurta: https://unsplash.com/photos/1759567066672-4b9f48000096 (images.unsplash.com/photo-1759567066672-4b9f48000096)
+- hero-shirt: https://unsplash.com/photos/1589310243389-96a5483213a8 (images.unsplash.com/photo-1589310243389-96a5483213a8)
+- col-eid: https://unsplash.com/photos/1534217466718-ef4950786e24 (images.unsplash.com/photo-1534217466718-ef4950786e24)
+- col-office: https://unsplash.com/photos/1601522089844-8ac5e2ae6773 (images.unsplash.com/photo-1601522089844-8ac5e2ae6773)
+- col-casual: https://unsplash.com/photos/1622519407650-3df9883f76a5 (images.unsplash.com/photo-1622519407650-3df9883f76a5)
+- cat-panjabi: https://unsplash.com/photos/1759567066672-4b9f48000096 (images.unsplash.com/photo-1759567066672-4b9f48000096)
+- cat-shirt: https://unsplash.com/photos/1767164520704-fc2a44498a11 (images.unsplash.com/photo-1767164520704-fc2a44498a11)
+- cat-casual: https://unsplash.com/photos/1624181497355-72434fbdf734 (images.unsplash.com/photo-1624181497355-72434fbdf734)
+- cat-shoes: https://unsplash.com/photos/1648233318901-735f039f7c1d (images.unsplash.com/photo-1648233318901-735f039f7c1d)
+- cat-acc: https://unsplash.com/photos/1473188588951-666fce8e7c68 (images.unsplash.com/photo-1473188588951-666fce8e7c68)
+- p-kurta-navy: https://unsplash.com/photos/1759567066672-4b9f48000096 (images.unsplash.com/photo-1759567066672-4b9f48000096)
+- p-sherwani: https://unsplash.com/photos/1534217466718-ef4950786e24 (images.unsplash.com/photo-1534217466718-ef4950786e24)
+- p-shirt-oxford: https://unsplash.com/photos/1601522089844-8ac5e2ae6773 (images.unsplash.com/photo-1601522089844-8ac5e2ae6773)
+- p-shirt-linen: https://unsplash.com/photos/1767164520704-fc2a44498a11 (images.unsplash.com/photo-1767164520704-fc2a44498a11)
+- p-shirt-check: https://unsplash.com/photos/1584598788860-2695a3a6c874 (images.unsplash.com/photo-1584598788860-2695a3a6c874)
+- p-shirt-white: https://unsplash.com/photos/1602810318383-e386cc2a3ccf (images.unsplash.com/photo-1602810318383-e386cc2a3ccf)
+- p-tee-black: https://unsplash.com/photos/1622519407650-3df9883f76a5 (images.unsplash.com/photo-1622519407650-3df9883f76a5)
+- p-tee-white: https://unsplash.com/photos/1624181497355-72434fbdf734 (images.unsplash.com/photo-1624181497355-72434fbdf734)
+- p-polo: https://unsplash.com/photos/1779907448384-bcd21af9bbbf (images.unsplash.com/photo-1779907448384-bcd21af9bbbf)
+- p-jacket: https://unsplash.com/photos/1617114919297-3c8ddb01f599 (images.unsplash.com/photo-1617114919297-3c8ddb01f599)
+- p-shoes-black: https://unsplash.com/photos/1648233318901-735f039f7c1d (images.unsplash.com/photo-1648233318901-735f039f7c1d)
+- p-wallet: https://unsplash.com/photos/1579014134953-1580d7f123f3 (images.unsplash.com/photo-1579014134953-1580d7f123f3)
+- p-bag: https://unsplash.com/photos/1473188588951-666fce8e7c68 (images.unsplash.com/photo-1473188588951-666fce8e7c68)

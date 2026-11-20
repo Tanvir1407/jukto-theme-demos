@@ -1,0 +1,5 @@
+node_modules/
+# dist/ is committed: Cloudflare Pages serves dist/<demo>/ straight from GitHub
+.astro/
+.DS_Store
+dist-astro/

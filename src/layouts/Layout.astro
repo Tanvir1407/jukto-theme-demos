@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import TabBar from "../components/TabBar.astro";
+import { shop, theme, THEME_ID, JUKTO_URL } from "../lib/shop";
+import { themeCss } from "../lib/theme";
+import { img } from "../lib/format";
+import { t, LANG, CLIENT_UI } from "../lib/i18n";
+
+interface Props { title?: string; active?: "home" | "categories" | "cart" | "track" }
+const { title, active = "home" } = Astro.props;
+const pageTitle = title ? `${title} — ${shop.name}` : `${shop.name} — ${t("{theme} থিমের ডেমো", { theme: shop.themeName })}`;
+const clientData = {
+  theme: THEME_ID,
+  lang: LANG,
+  ui: CLIENT_UI,
+  delivery: shop.delivery,
+  products: shop.products.map((p) => ({ slug: p.slug, name: p.name, img: img(THEME_ID, p.img, 400), options: p.options })),
+};
+---
+<!doctype html>
+<html lang={LANG} data-radius={theme.blocks.radius} data-scheme={theme.scheme ?? "light"} data-display={theme.displayFont ? "" : undefined} data-paper={theme.paper ? "" : undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={t("যুক্ত-এর {theme} থিমের ডেমো দোকান। এখানে অর্ডার হয় না।", { theme: shop.themeName })} />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content={theme.brand[800]} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={theme.fontUrl} />
+    <style set:html={themeCss(theme)}></style>
+  </head>
+  <body class="bg-surface text-ink-800 antialiased pb-[76px] md:pb-0">
+    <div data-demo-bar class="bg-ink-950 text-ink-0 text-[13px]">
+      <div class="mx-auto max-w-7xl px-3 md:px-6 min-h-9 py-1.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
+        <span>{t("এটি যুক্ত-এর")} <b>{shop.themeName}</b> {t("থিমের ডেমো দোকান — এখানে কোনো অর্ডার হয় না।")}</span>
+        <a href={JUKTO_URL} class="font-semibold underline underline-offset-2 text-brand-200 hover:text-ink-0">{t("এই থিমে দোকান খুলুন →")}</a>
+      </div>
+    </div>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <TabBar active={active} />
+    <div id="demo-toast" role="status" aria-live="polite" class="pointer-events-none fixed left-1/2 bottom-24 md:bottom-8 z-50 -translate-x-1/2 rounded-full bg-ink-950 px-5 py-2.5 text-sm font-semibold text-ink-0 shadow-lg opacity-0 transition data-[show='1']:opacity-100"></div>
+    <script type="application/json" id="demo-data" set:html={JSON.stringify(clientData)}></script>
+    <script>import "../scripts/cart.ts";</script>
+  </body>
+</html>

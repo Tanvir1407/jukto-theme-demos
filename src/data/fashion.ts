@@ -1,0 +1,121 @@
+/**
+ * Demo data for the Women's fashion theme demo shop (demo-fashion.jukto.bd).
+ * Invented shop and products. Prices are sample prices; nothing here is a real order, review or customer.
+ * Photos: Unsplash (free to use under the Unsplash License), downloaded and optimised by scripts/fetch-images.mjs.
+ */
+import type { DemoShop } from "../lib/types";
+
+const SIZES = (price: number, was?: number) => ["S", "M", "L", "XL"].map((label) => ({ label, price, was }));
+
+const shop: DemoShop = {
+  theme: "fashion",
+  themeName: "ফ্যাশন",
+  name: "রঙবতী",
+  initial: "র",
+  tagline: "তাঁতের শাড়ি, থ্রি-পিস আর হিজাব — দেশি কাপড়ে, নতুন ডিজাইনে।",
+  announcement: "৳৩,০০০+ অর্ডারে সারাদেশে ডেলিভারি ফ্রি · ক্যাশ অন ডেলিভারি",
+  phone: "০১৭০০-০০০০০০",
+  delivery: { inside: 70, outside: 130, freeOver: 3000 },
+  nav: [
+    { label: "শাড়ি", href: "products/?category=saree" },
+    { label: "থ্রি-পিস", href: "products/?category=three-piece" },
+    { label: "হিজাব", href: "products/?category=hijab" },
+    { label: "ঈদ কালেকশন", href: "products/?sale=1" },
+  ],
+  highlights: [
+    { mark: "৳", title: "ক্যাশ অন ডেলিভারি", sub: "হাতে পেয়ে টাকা" },
+    { mark: "২", title: "২–৫ দিনে ডেলিভারি", sub: "সারাদেশে" },
+    { mark: "↺", title: "৭ দিনে সাইজ বদল", sub: "ট্যাগ খোলা না থাকলে" },
+    { mark: "✓", title: "bKash · Nagad", sub: "অনলাইনেও পেমেন্ট" },
+  ],
+  slides: [
+    {
+      img: "hero-saree",
+      badge: "ঈদ কালেকশন ২০২৬",
+      title: "তাঁতের রঙে উৎসবের সাজ",
+      text: "টাঙ্গাইলের তাঁতিদের হাতে বোনা নতুন শাড়ি আর থ্রি-পিস।",
+      cta: "কালেকশন দেখুন",
+      href: "products/?category=saree",
+    },
+    {
+      img: "hero-saree-2",
+      badge: "নতুন এসেছে",
+      title: "জামদানি আর কাতান",
+      text: "হালকা, আরামদায়ক — সারাদিন পরার মতো।",
+      cta: "শাড়ি দেখুন",
+      href: "products/?category=saree",
+    },
+  ],
+  tiles: [],
+  collections: [
+    { title: "ঈদ উৎসব", img: "col-eid", href: "products/?category=party", note: "পার্টি ড্রেস ও লেহেঙ্গা" },
+    { title: "প্রতিদিনের সুতি", img: "col-cotton", href: "products/?category=three-piece", note: "থ্রি-পিস ও কো-অর্ড" },
+    { title: "হিজাব স্টুডিও", img: "col-hijab", href: "products/?category=hijab", note: "জর্জেট ও সুতি হিজাব" },
+  ],
+  story: {
+    img: "story-textile",
+    eyebrow: "আমাদের গল্প",
+    title: "তাঁতিদের সাথে একটা মৌসুম",
+    text: "প্রতিটা শাড়ি হাতে বোনা — একটা শেষ হতে তিন সপ্তাহ লাগে, আর সেই যত্ন দেখা যায় ভাঁজে ভাঁজে।",
+    cta: "কালেকশন দেখুন",
+    href: "products/?category=saree",
+  },
+  categories: [
+    { id: "saree", name: "শাড়ি", img: "cat-saree" },
+    { id: "three-piece", name: "থ্রি-পিস", img: "cat-three-piece" },
+    { id: "kurti", name: "কুর্তি ও টপস", img: "cat-kurti" },
+    { id: "hijab", name: "হিজাব", img: "cat-hijab" },
+    { id: "party", name: "পার্টি ড্রেস", img: "cat-party" },
+  ],
+  campaign: { title: "ঈদ সেল", endsInHours: 30 },
+  home: ["collections", "newArrivals", "story", "categories", "campaign", "highlights"],
+  products: [
+    { slug: "red-white-tant-saree", name: "লাল-কমলা তাঁতের শাড়ি", category: "saree", img: "p-saree-red-white", options: [{ label: "ফ্রি সাইজ", price: 2450, was: 2800 }], colors: ["#DC2626", "#EA580C"], badge: "নতুন", flash: true, text: "টাঙ্গাইলের হাতে বোনা তাঁত, সোনালি পাড়। ব্লাউজ পিস সহ, ৬ গজ।" },
+    { slug: "maroon-silk-saree", name: "বেগুনি সিল্ক শাড়ি", category: "saree", img: "p-saree-maroon", options: [{ label: "ফ্রি সাইজ", price: 6950 }], colors: ["#3B0764", "#CA8A04"], text: "নরম সিল্ক, সোনালি জরির কাজ। ব্লাউজ পিস সহ।" },
+    { slug: "pink-orange-katan", name: "গোলাপি-কমলা কাতান শাড়ি", category: "saree", img: "p-saree-pink", options: [{ label: "ফ্রি সাইজ", price: 8500, was: 9200 }], colors: ["#DB2777", "#EA580C"], badge: "ঈদ", flash: true, text: "মিরপুরের কাতান, ভারী জরির আঁচল।" },
+    { slug: "colourful-jamdani", name: "রঙিন অর্গানজা শাড়ি", category: "saree", img: "p-saree-jamdani", options: [{ label: "ফ্রি সাইজ", price: 12500 }], colors: ["#7C3AED", "#F59E0B", "#059669"], text: "হালকা অর্গানজা, রঙিন পাড় আর আঁচল।" },
+    { slug: "cream-yellow-party-set", name: "ক্রিম-হলুদ পার্টি সেট", category: "party", img: "p-saree-yellow", options: SIZES(4850), colors: ["#FDE68A", "#FFFBEB"], text: "জর্জেট ওড়না সহ হালকা কাজের পার্টি সেট।" },
+    { slug: "blue-floral-three-piece", name: "নীল ফ্লোরাল থ্রি-পিস", category: "three-piece", img: "p-3p-coord", options: SIZES(2350, 2650), colors: ["#1E3A8A", "#F8FAFC"], badge: "নতুন", flash: true, text: "সুতি কামিজ, পালাজো আর জর্জেট ওড়না। মাপ: S থেকে XL।" },
+    { slug: "printed-three-piece", name: "রঙিন প্রিন্ট থ্রি-পিস", category: "three-piece", img: "p-3p-print", options: SIZES(1950), colors: ["#BE185D", "#0E7490"], text: "নরম লন কাপড়, ডিজিটাল প্রিন্ট।" },
+    { slug: "blue-print-coord", name: "নেভি প্রিন্ট কো-অর্ড সেট", category: "three-piece", img: "p-3p-blue", options: SIZES(2150), colors: ["#1E1B4B", "#D6C49B"], text: "টপ আর প্যান্টের সেট, ঢিলেঢালা কাট।" },
+    { slug: "pink-floral-kurti", name: "গোলাপি ফ্লোরাল কুর্তি সেট", category: "kurti", img: "p-kurti-pink", options: SIZES(1650, 1850), colors: ["#F472B6", "#FDF2F8"], flash: true, text: "সুতি কুর্তি আর প্যান্ট, হালকা গোলাপি ফুলের প্রিন্ট।" },
+    { slug: "floral-print-kurti", name: "কালো ফ্লোরাল কুর্তি সেট", category: "kurti", img: "p-kurti-floral", options: SIZES(1350), colors: ["#111827", "#DB2777"], text: "অফিস আর ঘোরাঘুরিতে পরার মতো।" },
+    { slug: "blue-floral-top", name: "নীল ফ্লোরাল টপ", category: "kurti", img: "p-top-blue", options: SIZES(990), colors: ["#2563EB"], text: "হাফ হাতা সুতি টপ।" },
+    { slug: "blue-georgette-hijab", name: "পুদিনা সবুজ জর্জেট হিজাব", category: "hijab", img: "p-hijab-blue", options: [{ label: "ফ্রি সাইজ", price: 450, was: 520 }], colors: ["#94B8A9", "#1E3A8A", "#F5F5F4"], text: "হালকা জর্জেট, পিছলে যায় না।" },
+    { slug: "white-cotton-hijab", name: "সাদা সুতি হিজাব", category: "hijab", img: "p-hijab-white", options: [{ label: "ফ্রি সাইজ", price: 390 }], colors: ["#FAFAF9", "#D6D3D1"], text: "নরম সুতি, গরমে আরাম।" },
+    { slug: "purple-hijab", name: "বেগুনি হিজাব", category: "hijab", img: "p-hijab-purple", options: [{ label: "ফ্রি সাইজ", price: 420 }], colors: ["#7E22CE"], badge: "নতুন", text: "জার্সি কাপড়, টানলে বাড়ে।" },
+    { slug: "blue-gold-party-gown", name: "নীল-সোনালি পার্টি গাউন", category: "party", img: "p-party-blue", options: SIZES(5450, 5990), colors: ["#1E3A8A", "#CA8A04"], flash: true, text: "সোনালি ফুলের কাজ, স্লিভলেস।" },
+    { slug: "red-gold-lehenga", name: "লাল-সোনালি লেহেঙ্গা", category: "party", img: "p-party-red", options: SIZES(9800), colors: ["#B91C1C", "#CA8A04"], badge: "ঈদ", text: "বিয়ে আর উৎসবের জন্য ভারী কাজের লেহেঙ্গা।" },
+  ],
+  images: {
+    "hero-saree": { id: "photo-1617627143750-d86bc21e42bb", kind: "banner", alt: "গোলাপি-কমলা শাড়ি পরা নারী" },
+    "hero-saree-2": { id: "photo-1692992193981-d3d92fabd9cb", kind: "banner", alt: "রঙিন শাড়ি পরা নারী" },
+    "col-eid": { id: "photo-1610047614256-023d7c028d0b", kind: "portrait", alt: "" },
+    "col-cotton": { id: "photo-1768289222345-64b6b53bf78b", kind: "portrait", alt: "" },
+    "col-hijab": { id: "photo-1585728748176-455ac5eed962", kind: "portrait", alt: "" },
+    "story-textile": { id: "photo-1588140686379-1b76a52103dc", kind: "banner", alt: "রঙিন তাঁতের কাপড়" },
+    "cat-saree": { id: "photo-1619516388835-2b60acc4049e", kind: "portrait", alt: "" },
+    "cat-three-piece": { id: "photo-1768478701607-db8c96dbb87f", kind: "portrait", alt: "" },
+    "cat-kurti": { id: "photo-1766556514059-303c3b790424", kind: "portrait", alt: "" },
+    "cat-hijab": { id: "photo-1542380841-5eef57349ca1", kind: "portrait", alt: "" },
+    "cat-party": { id: "photo-1610202631408-fa6ba0f39ca3", kind: "portrait", alt: "" },
+    "p-saree-red-white": { id: "photo-1619516388835-2b60acc4049e", kind: "portrait", alt: "লাল-সাদা শাড়ি পরা নারী" },
+    "p-saree-maroon": { id: "photo-1610030469983-98e550d6193c", kind: "portrait", alt: "মেরুন শাড়ি পরা নারী" },
+    "p-saree-pink": { id: "photo-1617627143750-d86bc21e42bb", kind: "portrait", alt: "গোলাপি-কমলা শাড়ি পরা নারী" },
+    "p-saree-jamdani": { id: "photo-1692992193981-d3d92fabd9cb", kind: "portrait", alt: "রঙিন শাড়ি পরা নারী" },
+    "p-saree-yellow": { id: "photo-1706943262454-84ee74854346", kind: "portrait", alt: "হলুদ-নীল শাড়ি পরা নারী" },
+    "p-3p-blue": { id: "photo-1768289222345-64b6b53bf78b", kind: "portrait", alt: "নীল ফ্লোরাল পোশাক" },
+    "p-3p-print": { id: "photo-1768478701607-db8c96dbb87f", kind: "portrait", alt: "রঙিন প্রিন্টের পোশাক" },
+    "p-3p-coord": { id: "photo-1767785829225-2f6d286c4cf5", kind: "portrait", alt: "নীল প্রিন্টের সেট" },
+    "p-kurti-pink": { id: "photo-1766556514059-303c3b790424", kind: "portrait", alt: "গোলাপি ফ্লোরাল সেট" },
+    "p-kurti-floral": { id: "photo-1764161148361-d8d87d000acf", kind: "portrait", alt: "ফ্লোরাল প্রিন্টের পোশাক" },
+    "p-top-blue": { id: "photo-1763294632433-a0c7680720e1", kind: "portrait", alt: "নীল ফ্লোরাল টপ" },
+    "p-hijab-blue": { id: "photo-1542380841-5eef57349ca1", kind: "portrait", alt: "নীল হিজাব" },
+    "p-hijab-white": { id: "photo-1585728748176-455ac5eed962", kind: "portrait", alt: "সাদা হিজাব" },
+    "p-hijab-purple": { id: "photo-1693985007521-e08e64770947", kind: "portrait", alt: "বেগুনি হিজাব" },
+    "p-party-blue": { id: "photo-1610202631408-fa6ba0f39ca3", kind: "portrait", alt: "নীল-সোনালি পোশাক" },
+    "p-party-red": { id: "photo-1610047614256-023d7c028d0b", kind: "portrait", alt: "লাল-সোনালি পোশাক" },
+  },
+};
+
+export default shop;

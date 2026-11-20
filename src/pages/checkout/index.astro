@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { shop, JUKTO_URL } from "../../lib/shop";
+import { bn } from "../../lib/format";
+const field = "h-12 w-full rounded-xl border border-ink-200 bg-ink-0 px-4 text-base outline-none focus:border-brand-800 focus:ring-2 focus:ring-brand-100";
+import { t } from "../../lib/i18n";
+---
+<Layout title={t("চেকআউট")} active="cart">
+  <div class="mx-auto max-w-5xl px-3 md:px-6 pt-4 md:pt-8 mb-24 md:mb-0">
+    <h1 class="text-2xl md:text-3xl font-bold text-heading">{t("অর্ডার নিশ্চিত করুন")}</h1>
+    <form id="checkout-form" class="mt-4 grid gap-4 md:grid-cols-[1fr_360px]">
+      <div class="flex flex-col gap-4 rounded-2xl bg-ink-0 p-4 md:p-6">
+        <label class="flex flex-col gap-1.5 text-sm font-semibold text-ink-700">{t("আপনার নাম")}<input required name="name" autocomplete="name" class={field} /></label>
+        <label class="flex flex-col gap-1.5 text-sm font-semibold text-ink-700">{t("মোবাইল নম্বর")}<input required name="phone" inputmode="tel" pattern="01[0-9]{9}" placeholder="01XXXXXXXXX" class={field} /></label>
+        <label class="flex flex-col gap-1.5 text-sm font-semibold text-ink-700">{t("পুরো ঠিকানা")}<textarea required name="address" rows="3" class="w-full rounded-xl border border-ink-200 px-4 py-3 text-base outline-none focus:border-brand-800 focus:ring-2 focus:ring-brand-100"></textarea></label>
+        <fieldset class="flex flex-col gap-2">
+          <legend class="mb-1 text-sm font-semibold text-ink-700">{t("ডেলিভারি এলাকা")}</legend>
+          <label class="flex min-h-12 cursor-pointer items-center justify-between gap-3 rounded-xl border border-ink-200 px-4 has-[:checked]:border-brand-800 has-[:checked]:bg-brand-50"><span class="flex items-center gap-3"><input type="radio" name="zone" value="inside" checked class="accent-[var(--brand-800)] size-4" />{t("ঢাকার ভিতরে")}</span><span class="font-semibold">৳{bn(shop.delivery.inside)}</span></label>
+          <label class="flex min-h-12 cursor-pointer items-center justify-between gap-3 rounded-xl border border-ink-200 px-4 has-[:checked]:border-brand-800 has-[:checked]:bg-brand-50"><span class="flex items-center gap-3"><input type="radio" name="zone" value="outside" class="accent-[var(--brand-800)] size-4" />{t("ঢাকার বাইরে")}</span><span class="font-semibold">৳{bn(shop.delivery.outside)}</span></label>
+        </fieldset>
+        <p class="rounded-xl bg-surface p-3 text-sm text-ink-600">{t("পেমেন্ট: ক্যাশ অন ডেলিভারি (আসল দোকানে bKash / Nagad ও চালু করা যায়)")}</p>
+      </div>
+      <aside id="order-summary" class="h-fit flex flex-col gap-3 rounded-2xl bg-ink-0 p-4 md:p-6 md:sticky md:top-40">
+        <h2 class="text-lg font-bold text-heading">{t("অর্ডারের হিসাব")}</h2>
+        <ul data-items class="flex flex-col gap-1.5 text-sm text-ink-700"></ul>
+        <div class="border-t border-ink-100 pt-3 flex flex-col gap-1.5 text-sm">
+          <div class="flex justify-between"><span>{t("পণ্যের দাম")}</span><span data-sub>{t("৳০")}</span></div>
+          <div class="flex justify-between"><span>{t("ডেলিভারি")}</span><span data-ship>{t("৳০")}</span></div>
+          <div class="flex justify-between text-lg font-bold text-heading pt-1"><span>{t("মোট")}</span><span data-grand>{t("৳০")}</span></div>
+        </div>
+        <button class="h-12 rounded-full bg-brand-800 font-semibold text-ink-0 hover:bg-brand-900">{t("অর্ডার করুন")}</button>
+      </aside>
+    </form>
+    <dialog id="demo-done" class="m-auto w-[min(92vw,420px)] rounded-2xl p-0 backdrop:bg-ink-950/50">
+      <div class="flex flex-col items-center gap-3 p-6 text-center">
+        <span class="grid size-14 place-items-center rounded-full bg-brand-50 text-2xl text-brand-800">✓</span>
+        <h2 class="text-xl font-bold text-heading">{t("এটি ডেমো দোকান")}</h2>
+        <p class="text-ink-600">{t("আসল দোকানে এখানে অর্ডার হয়ে যেত, আর কাস্টমার SMS পেতেন। এই ডেমোতে কোনো অর্ডার বা তথ্য কোথাও পাঠানো হয়নি।")}</p>
+        <a href={JUKTO_URL} class="mt-2 flex h-12 w-full items-center justify-center rounded-full bg-brand-800 font-semibold text-ink-0">{t("এই থিমে আপনার দোকান খুলুন")}</a>
+        <form method="dialog" class="w-full"><button class="h-11 w-full rounded-full text-sm font-semibold text-ink-600">{t("ডেমোতে ফিরে যান")}</button></form>
+      </div>
+    </dialog>
+  </div>
+</Layout>

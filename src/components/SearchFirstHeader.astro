@@ -1,0 +1,50 @@
+---
+// Jukto "searchFirst" header (Organic theme): logo, delivery charge, big search, cart total;
+// green category bar on desktop, scrolling category chips on phones.
+import { shop } from "../lib/shop";
+import { bn, taka } from "../lib/format";
+import { t } from "../lib/i18n";
+---
+<header class="sticky top-0 z-40 bg-ink-0 shadow-[0_1px_0_var(--ink-200)]">
+  <div class="mx-auto max-w-7xl px-3 md:px-6 py-2.5 md:py-3.5 flex items-center gap-3 md:gap-6 flex-wrap md:flex-nowrap">
+    <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label={`${shop.name} — ${t("হোম")}`}>
+      <span class="grid place-items-center size-9 md:size-11 rounded-xl bg-brand-800 text-ink-0 text-lg md:text-xl font-bold">{shop.initial}</span>
+      <span class="text-xl md:text-2xl font-bold text-heading">{shop.name}</span>
+    </a>
+    <div class="hidden lg:flex flex-col justify-center h-12 px-4 rounded-2xl border border-ink-200 leading-tight shrink-0">
+      <span class="text-xs text-ink-500">{t("ডেলিভারি চার্জ")}</span>
+      <span class="text-sm font-semibold text-heading">{t("ঢাকায় {a} · বাইরে {b}", { a: taka(shop.delivery.inside), b: taka(shop.delivery.outside) })}</span>
+    </div>
+    <form action="/products/" class="order-last md:order-none w-full md:flex-1 flex items-center gap-2 h-12 pl-4 pr-1.5 rounded-full border-[1.5px] border-brand-800 bg-ink-0" role="search">
+      <svg class="size-5 text-ink-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label for="q" class="sr-only">{t("পণ্য খুঁজুন")}</label>
+      <input id="q" name="q" type="search" placeholder={t("মধু, ঘি, তেল, খেজুর খুঁজুন…")} class="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-ink-400" />
+      <button class="h-9 px-5 rounded-full bg-brand-800 text-ink-0 text-sm font-semibold hover:bg-brand-900">{t("খুঁজুন")}</button>
+    </form>
+    <div class="ml-auto md:ml-0 flex items-center gap-1 shrink-0">
+      <a href="/track/" class="hidden md:flex flex-col items-center justify-center w-16 h-12 text-xs text-ink-600 hover:text-brand-800">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h11v10H3z M14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>{t("ট্র্যাক")}
+      </a>
+      <a href="/cart/" class="relative flex items-center gap-2.5 h-11 md:h-12 px-3 md:px-4 rounded-full bg-heading text-ink-0" aria-label={t("কার্ট")}>
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 5h2l2 11h11l2-8H7"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+        <span class="hidden sm:inline text-sm font-semibold" data-cart-total>{t("৳০")}</span>
+        <span data-cart-count hidden class="absolute -top-1 -right-1 min-w-5 h-5 px-1 rounded-full bg-action-500 text-[11px] font-bold text-ink-0 grid place-items-center">{t("০")}</span>
+      </a>
+    </div>
+  </div>
+  <nav aria-label={t("ক্যাটাগরি")} class="hidden md:block bg-brand-800">
+    <div class="mx-auto max-w-7xl px-6 flex items-center gap-1 h-11 overflow-x-auto no-scrollbar">
+      <a href="/products/" class="shrink-0 h-8 px-3 rounded-full bg-brand-900 text-ink-0 text-sm font-semibold flex items-center gap-2">
+        <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>{t("সব পণ্য")}
+      </a>
+      {shop.categories.map((c) => (
+        <a href={`/products/?category=${c.id}`} class="shrink-0 h-8 px-3 flex items-center text-sm font-medium text-ink-0/90 hover:text-ink-0 hover:underline underline-offset-4">{c.name}</a>
+      ))}
+    </div>
+  </nav>
+  <nav aria-label={t("ক্যাটাগরি")} class="md:hidden flex gap-2 overflow-x-auto no-scrollbar px-3 pb-2.5">
+    {shop.categories.map((c) => (
+      <a href={`/products/?category=${c.id}`} class="shrink-0 h-9 px-4 rounded-full bg-brand-50 text-sm font-medium text-brand-900 flex items-center">{c.name}</a>
+    ))}
+  </nav>
+</header>

@@ -1,0 +1,25 @@
+# Photo credits — jewelry demo
+
+All photos from Unsplash, free to use under the Unsplash License (https://unsplash.com/license).
+
+- hero-set: https://unsplash.com/photos/1722410180670-b6d5a2e704fa (images.unsplash.com/photo-1722410180670-b6d5a2e704fa)
+- story-bride: https://unsplash.com/photos/1610047614301-13c63f00c032 (images.unsplash.com/photo-1610047614301-13c63f00c032)
+- cat-necklace: https://unsplash.com/photos/1722410180687-b05b50922362 (images.unsplash.com/photo-1722410180687-b05b50922362)
+- cat-earrings: https://unsplash.com/photos/1692165295689-68fc4155e2b1 (images.unsplash.com/photo-1692165295689-68fc4155e2b1)
+- cat-bangles: https://unsplash.com/photos/1758995116383-f51775896add (images.unsplash.com/photo-1758995116383-f51775896add)
+- cat-rings: https://unsplash.com/photos/1631982690223-8aa4be0a2497 (images.unsplash.com/photo-1631982690223-8aa4be0a2497)
+- p-temple: https://unsplash.com/photos/1601121141461-9d6647bca1ed (images.unsplash.com/photo-1601121141461-9d6647bca1ed)
+- p-bridal-set: https://unsplash.com/photos/1758995115857-2de1eb6283d0 (images.unsplash.com/photo-1758995115857-2de1eb6283d0)
+- p-kundan: https://unsplash.com/photos/1692338710091-cb054e6fbc12 (images.unsplash.com/photo-1692338710091-cb054e6fbc12)
+- p-circle: https://unsplash.com/photos/1773929345739-94db8a4ccd0c (images.unsplash.com/photo-1773929345739-94db8a4ccd0c)
+- p-teardrop: https://unsplash.com/photos/1705326452390-3ecf6070595f (images.unsplash.com/photo-1705326452390-3ecf6070595f)
+- p-peacock: https://unsplash.com/photos/1692165295689-68fc4155e2b1 (images.unsplash.com/photo-1692165295689-68fc4155e2b1)
+- p-shell: https://unsplash.com/photos/1778182553300-7593326ca29d (images.unsplash.com/photo-1778182553300-7593326ca29d)
+- p-hoops: https://unsplash.com/photos/1617038220319-276d3cfab638 (images.unsplash.com/photo-1617038220319-276d3cfab638)
+- p-studs: https://unsplash.com/photos/1787520309842-6a8e4b7cdd7f (images.unsplash.com/photo-1787520309842-6a8e4b7cdd7f)
+- p-bangle-set: https://unsplash.com/photos/1758995116383-f51775896add (images.unsplash.com/photo-1758995116383-f51775896add)
+- p-bangle-twist: https://unsplash.com/photos/1691644165146-c322673de84f (images.unsplash.com/photo-1691644165146-c322673de84f)
+- p-cuff: https://unsplash.com/photos/1691991054594-c64b364a9fab (images.unsplash.com/photo-1691991054594-c64b364a9fab)
+- p-bangle-stone: https://unsplash.com/photos/1691039859258-adda2e204a11 (images.unsplash.com/photo-1691039859258-adda2e204a11)
+- p-ring-trio: https://unsplash.com/photos/1631982690223-8aa4be0a2497 (images.unsplash.com/photo-1631982690223-8aa4be0a2497)
+- p-ring-gems: https://unsplash.com/photos/1608042314453-ae338d80c427 (images.unsplash.com/photo-1608042314453-ae338d80c427)

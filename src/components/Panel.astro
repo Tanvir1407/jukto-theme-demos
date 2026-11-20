@@ -1,0 +1,32 @@
+---
+// Home section frame. "panels" themes (Organic v2): white rounded panel on the page colour.
+// "plain" themes (Fashion): open section, large title, underlined "সব দেখুন".
+import { theme } from "../lib/shop";
+import { t } from "../lib/i18n";
+interface Props { title: string; id: string; href?: string; tight?: boolean }
+const { title, id, href, tight } = Astro.props;
+const panels = theme.blocks.sections === "panels";
+---
+{panels ? (
+  <section aria-labelledby={id} class:list={["mx-3 xl:mx-auto max-w-7xl mt-3 md:mt-5 bg-ink-0 rounded-2xl", tight ? "p-3 md:p-5" : "p-3.5 md:p-6"]}>
+    <div class="mb-3 md:mb-5 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <h2 id={id} class="text-lg md:text-2xl font-bold text-heading truncate">{title}</h2>
+        <slot name="badge" />
+      </div>
+      {href && <a href={href} class="shrink-0 min-h-11 flex items-center text-sm font-semibold text-brand-800 hover:underline underline-offset-4">{t("সব দেখুন →")}</a>}
+    </div>
+    <slot />
+  </section>
+) : (
+  <section aria-labelledby={id} class="mx-auto max-w-7xl px-3 md:px-6 pt-10 md:pt-16">
+    <div class="mb-4 md:mb-7 flex items-end justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <h2 id={id} class="text-2xl md:text-[32px] font-semibold leading-tight text-heading">{title}</h2>
+        <slot name="badge" />
+      </div>
+      {href && <a href={href} class="shrink-0 min-h-11 flex items-center text-sm text-heading underline underline-offset-4 hover:text-ink-600">{t("সব দেখুন")}</a>}
+    </div>
+    <slot />
+  </section>
+)}

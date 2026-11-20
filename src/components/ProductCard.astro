@@ -1,0 +1,12 @@
+---
+// The card the theme picks (Jukto ThemeBlocks.card): grocery (Organic v2), tall (Fashion) or standard (Generic).
+import GroceryCard from "./GroceryCard.astro";
+import TallCard from "./TallCard.astro";
+import StandardCard from "./StandardCard.astro";
+import LuxeCard from "./LuxeCard.astro";
+import { theme } from "../lib/shop";
+import type { DemoProduct } from "../lib/types";
+interface Props { p: DemoProduct; eager?: boolean }
+const { p, eager } = Astro.props;
+---
+{theme.blocks.card === "tall" ? <TallCard p={p} eager={eager} /> : theme.blocks.card === "standard" ? <StandardCard p={p} eager={eager} /> : theme.blocks.card === "luxe" ? <LuxeCard p={p} eager={eager} /> : <GroceryCard p={p} eager={eager} />}
