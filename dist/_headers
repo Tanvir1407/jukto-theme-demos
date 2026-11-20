@@ -1,0 +1,6 @@
+/:demo/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+/:demo/_fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/:demo/uploads/*
+  Cache-Control: public, max-age=86400

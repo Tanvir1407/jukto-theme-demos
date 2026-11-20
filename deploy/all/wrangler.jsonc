@@ -1,0 +1,16 @@
+// One Cloudflare Worker for all demo shops (demo-<name>.jukto.bd).
+// In Cloudflare: Project name = jukto-theme-demos, Advanced settings -> Path = deploy/all,
+// Build command empty, Deploy command "npx wrangler deploy".
+// Then add each demo-<name>.jukto.bd under Settings -> Domains & Routes -> Custom domain.
+{
+  "name": "jukto-theme-demos",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "../../dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}
