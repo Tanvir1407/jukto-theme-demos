@@ -1,0 +1,12 @@
+// Cloudflare Worker for the static demo shop demo-mensfashion.jukto.bd.
+// In Cloudflare: Project name = demo-mensfashion, Advanced settings -> Path = deploy/mensfashion,
+// Build command empty, Deploy command "npx wrangler deploy".
+{
+  "name": "demo-mensfashion",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "../../dist/mensfashion",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
